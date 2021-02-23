@@ -45,17 +45,17 @@ namespace construction.Repositories
     }
 
 
-    // internal IEnumerable<Job> GetJobsByKitId(int kitId)
-    // {
-    //   string sql = @"
-    //   SELECT b.*,
-    //   kb.id as KitJobId 
-    //   FROM kitbricks kb
-    //   JOIN jobs b ON b.id = kb.brickId
-    //   WHERE kitId = @kitId";
+    internal IEnumerable<Job> GetJobsByContractorId(int contractorId)
+    {
+      string sql = @"
+      SELECT r.*,
+      b.id as BidId 
+      FROM bids b
+      JOIN jobs r ON r.id = b.brickId
+      WHERE contractorId = @contractorId";
 
-    //   return _db.Query<KitBrickViewModel>(sql, new { kitId });
-    // }
+      return _db.Query<BidViewModel>(sql, new { contractorId });
+    }
 
   }
 }

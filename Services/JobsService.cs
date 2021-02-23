@@ -9,13 +9,12 @@ namespace construction.Services
   {
 
     private readonly JobsRepository _repo;
-    // private readonly KitsRepository _krepo;
+    private readonly ContractorsRepository _crepo;
 
-    // public JobsService(JobsRepository repo, KitsRepository krepo)
-    public JobsService(JobsRepository repo)
+    public JobsService(JobsRepository repo, ContractorsRepository crepo)
     {
       _repo = repo;
-      //   _krepo = krepo;
+      _crepo = crepo;
     }
 
 
@@ -50,15 +49,15 @@ namespace construction.Services
 
 
 
-    // internal IEnumerable<Job> GetJobsByKitId(int kitId)
-    // {
-    //   Kit exists = _krepo.Get(kitId);
-    //   if (exists == null)
-    //   {
-    //     throw new Exception("Invalid Id");
-    //   }
-    //   return _repo.GetJobsByKitId(kitId);
-    // }
+    internal IEnumerable<Job> GetJobsByContractorId(int contractorId)
+    {
+      Contractor exists = _crepo.Get(contractorId);
+      if (exists == null)
+      {
+        throw new Exception("Invalid Id");
+      }
+      return _repo.GetJobsByContractorId(contractorId);
+    }
 
   }
 }

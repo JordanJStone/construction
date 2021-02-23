@@ -8,9 +8,9 @@ namespace construction.Models
     public string Location { get; set; }
   }
 
-  //   TODO add ViewModel here? (id needed)
-  //   public class KitBrickViewModel : Brick
-  //   {
-  //     public int KitBrickId { get; set; }
-  //   }
+  // TODO add ViewModel here? (id needed)
+  public class BidViewModel : Job
+  {
+    public int BidId { get; set; }
+  }
 }

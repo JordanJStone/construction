@@ -5,5 +5,6 @@ namespace construction.Models
     public int Id { get; set; }
     public int JobId { get; set; }
     public int ContractorId { get; set; }
+    public int Price { get; set; }
   }
 }
